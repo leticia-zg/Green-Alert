@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<h1>Bem-vindo ao Sistema de Gestão Find My Pet</h1>
+<p>Escolha uma das opções abaixo:</p>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Adoções</h5>
+                <p class="card-text">Gerencie registros de adoção.</p>
+                <a asp-controller="Adocao" asp-action="Index" class="btn btn-light">Acessar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Animais</h5>
+                <p class="card-text">Gerencie registros de animais.</p>
+                <a asp-controller="Animal" asp-action="Index" class="btn btn-light">Acessar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Reports</h5>
+                <p class="card-text">Gerencie registros de reports.</p>
+                <a asp-controller="Report" asp-action="Index" class="btn btn-light">Acessar</a>
+            </div>
+        </div>
+    </div>
+</div>

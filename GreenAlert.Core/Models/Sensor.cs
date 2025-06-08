@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace GreenAlert.Core.Models;
 
@@ -22,6 +23,7 @@ public class Sensor
     public Guid EstacaoId { get; set; }
 
     [ForeignKey("EstacaoId")]
+    [JsonIgnore]
     public Estacao? Estacao { get; set; }
 
     public ICollection<Alerta>? Alertas { get; set; }
