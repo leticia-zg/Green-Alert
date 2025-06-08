@@ -1,0 +1,27 @@
+@model List<GreenAlert.MVC.Models.SensorViewModel>
+
+    @{
+    ViewData["Title"] = "Sensores";
+    }
+
+    <h1>Sensores</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Unidade</th>
+                <th>Estação ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Tipo</td>
+                <td>@s.Unidade</td>
+                <td>@s.EstacaoId</td>
+            </tr>
+        }
+        </tbody>
+    </table>
