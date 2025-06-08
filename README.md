@@ -137,7 +137,7 @@ POST /api/estacoes
 Content-Type: application/json
 
 {
-  "nome": "Sensor Amazônia Norte",
+  "nome": "Estação Amazônia Norte",
   "localização": "Amazônia Norte"
 }
 ```
