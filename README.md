@@ -171,6 +171,8 @@ Content-Type: application/json
 
 ---
 
+## 📈 Diagrama da Arquitetura
+
 ```mermaid
 classDiagram
     direction TB
