@@ -169,6 +169,91 @@ Content-Type: application/json
 }
 ```
 
+---
+
+```mermaid
+classDiagram
+    direction TB
+
+    %% === ENTIDADES DE DOMÍNIO ===
+    class Estacao {
+        +Guid EstacaoId
+        +string Nome
+        +string Localizacao
+        +List~Sensor~ Sensores
+    }
+
+    class Sensor {
+        +Guid SensorId
+        +string Tipo
+        +string Unidade
+        +Guid EstacaoId
+        +Estacao Estacao
+        +List~Alerta~ Alertas
+    }
+
+    class Alerta {
+        +Guid AlertaId
+        +string Tipo
+        +double Valor
+        +string Descricao
+        +DateTime DataHora
+        +Guid SensorId
+        +Sensor Sensor
+    }
+
+    %% === DB CONTEXT ===
+    class ApplicationDbContext {
+        +DbSet~Estacao~ Estacoes
+        +DbSet~Sensor~ Sensores
+        +DbSet~Alerta~ Alertas
+    }
+
+    %% === INTERFACES DE SERVIÇO ===
+    class IEstacaoService
+    class ISensorService
+    class IAlertaService
+
+    %% === IMPLEMENTAÇÕES DE SERVIÇO ===
+    class EstacaoService {
+        -ApplicationDbContext _context
+    }
+
+    class SensorService {
+        -ApplicationDbContext _context
+    }
+
+    class AlertaService {
+        -ApplicationDbContext _context
+    }
+
+    %% === CONTROLLERS ===
+    class EstacoesController
+    class SensoresController
+    class AlertasController
+
+    %% === RELACIONAMENTOS ENTRE ENTIDADES ===
+    Estacao "1" --> "*" Sensor : possui
+    Sensor "1" --> "*" Alerta : gera
+
+    %% === DB CONTEXT RELATIONS ===
+    ApplicationDbContext --> Estacao
+    ApplicationDbContext --> Sensor
+    ApplicationDbContext --> Alerta
+
+    %% === SERVICES E INTERFACES ===
+    EstacaoService ..|> IEstacaoService
+    SensorService ..|> ISensorService
+    AlertaService ..|> IAlertaService
+
+    %% === CONTROLLERS PARA SERVIÇOS ===
+    EstacoesController --> IEstacaoService
+    SensoresController --> ISensorService
+    AlertasController --> IAlertaService
+    
+```
+
+---
 
 📌 Autores:
 
